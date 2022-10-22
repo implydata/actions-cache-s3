@@ -43,9 +43,15 @@ async function run(): Promise<void> {
         const s3config = utils.getInputS3ClientConfig();
 
         try {
-            await cache.saveCache(cachePaths, primaryKey, {
-                uploadChunkSize: utils.getInputAsInt(Inputs.UploadChunkSize)
-            }, s3config, s3BucketName);
+            await cache.saveCache(
+                cachePaths,
+                primaryKey,
+                {
+                    uploadChunkSize: utils.getInputAsInt(Inputs.UploadChunkSize)
+                },
+                s3config,
+                s3BucketName
+            );
             core.info(`Cache saved with key: ${primaryKey}`);
         } catch (error) {
             if (error.name === cache.ValidationError.name) {

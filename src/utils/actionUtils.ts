@@ -1,8 +1,8 @@
 import * as core from "@actions/core";
+import type { S3ClientConfig } from "@aws-sdk/client-s3";
+import type { BucketEndpointInputConfig } from "@aws-sdk/middleware-bucket-endpoint";
 
 import { Inputs, Outputs, RefKey, State } from "../constants";
-
-import {CommonPrefix, InputSerialization, S3ClientConfig} from "@aws-sdk/client-s3";
 
 export function isGhes(): boolean {
     const ghUrl = new URL(
@@ -78,23 +78,23 @@ export function getInputAsInt(
 }
 
 export function getInputS3ClientConfig(): S3ClientConfig | undefined {
-    const s3BucketName = core.getInput(Inputs.AWSS3Bucket)
+    const s3BucketName = core.getInput(Inputs.AWSS3Bucket);
     if (!s3BucketName) {
-        return undefined
+        return undefined;
     }
 
-    const s3config = {
+    const s3config: S3ClientConfig & BucketEndpointInputConfig = {
         credentials: {
-          accessKeyId: core.getInput(Inputs.AWSAccessKeyId),
-          secretAccessKey: core.getInput(Inputs.AWSSecretAccessKey)
+            accessKeyId: core.getInput(Inputs.AWSAccessKeyId),
+            secretAccessKey: core.getInput(Inputs.AWSSecretAccessKey)
         },
         region: core.getInput(Inputs.AWSRegion),
         endpoint: core.getInput(Inputs.AWSEndpoint),
         bucketEndpoint: core.getBooleanInput(Inputs.AWSS3BucketEndpoint),
-        forcePathStyle: core.getBooleanInput(Inputs.AWSS3ForcePathStyle),
-    } as S3ClientConfig
+        forcePathStyle: core.getBooleanInput(Inputs.AWSS3ForcePathStyle)
+    };
 
-    core.debug('Enable S3 backend mode.')
+    core.debug("Enable S3 backend mode.");
 
-    return s3config
+    return s3config;
 }
