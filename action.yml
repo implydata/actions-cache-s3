@@ -32,11 +32,11 @@ inputs:
   aws-s3-bucket-endpoint:
     description: 'Whether to use the bucket name as the endpoint for this request.'
     required: false
-    default: true
+    default: 'true'
   aws-s3-force-path-style:
     description: 'Whether to force path style URLs for S3 objects.'
     required: false
-    default: false
+    default: 'false'
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
