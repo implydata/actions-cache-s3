@@ -26,12 +26,12 @@
     "node": "16.18.0"
   },
   "dependencies": {
-    "@actions/cache": "https://gitpkg.now.sh/whywaita/toolkit/packages/cache?0dcc12b18a1f353a46b14188aa30a2c28c57ae74",
+    "@actions/cache": "https://gitpkg.now.sh/whywaita/toolkit/packages/cache?a080d3b0a71727a0049c56b2536d621872359cd8",
     "@actions/core": "^1.10.0",
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
-    "@aws-sdk/client-s3": "^3.194.0",
-    "@aws-sdk/types": "^3.193.0"
+    "@aws-sdk/client-s3": "~3.50.0",
+    "@aws-sdk/types": "~3.50.0"
   },
   "devDependencies": {
     "@types/jest": "^29.2.0",
