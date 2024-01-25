@@ -23,13 +23,13 @@
   "author": "GitHub",
   "license": "MIT",
   "volta": {
-    "node": "16.18.0"
+    "node": "20.11.0"
   },
   "dependencies": {
     "@actions/cache": "https://gitpkg.now.sh/whywaita/toolkit/packages/cache?a080d3b0a71727a0049c56b2536d621872359cd8",
-    "@actions/core": "^1.10.0",
+    "@actions/core": "^1.10.1",
     "@actions/exec": "^1.1.1",
-    "@actions/io": "^1.1.2",
+    "@actions/io": "^1.1.3",
     "@aws-sdk/client-s3": "~3.50.0",
     "@aws-sdk/types": "~3.50.0"
   },
@@ -54,6 +54,6 @@
     "typescript": "^4.8.4"
   },
   "overrides": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.1"
   }
 }
